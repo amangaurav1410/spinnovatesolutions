@@ -4,15 +4,15 @@
 
 @layer base {
   :root {
-    --background: #f8fafc;
+    --background: #ffffff;
     --foreground: #0f172a;
     --card: #ffffff;
     --card-foreground: #0f172a;
     --card-border: #e2e8f0;
     --primary: #2563eb;
     --primary-foreground: #ffffff;
-    --muted: #f1f5f9;
-    --muted-foreground: #64748b;
+    --muted: #f8fafc;
+    --muted-foreground: #475569;
     --border: #e2e8f0;
   }
 
@@ -41,23 +41,23 @@
   }
 }
 
-/* Enterprise Grid & Dot Patterns */
+/* Light & Dark Grid Patterns */
 .bg-grid-slate {
-  background-size: 40px 40px;
+  background-size: 36px 36px;
   background-image: 
-    linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+    linear-gradient(to right, rgba(37, 99, 235, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
 }
 
 .dark .bg-grid-slate {
-  background-size: 40px 40px;
+  background-size: 36px 36px;
   background-image: 
     linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
 }
 
 .bg-radial-gradient {
-  background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
+  background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.08) 0%, rgba(13, 148, 136, 0.04) 40%, rgba(255, 255, 255, 0) 75%);
 }
 
 .dark .bg-radial-gradient {
@@ -66,10 +66,10 @@
 
 /* Glassmorphism Styles */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(226, 232, 240, 0.8);
+  border: 1px solid rgba(226, 232, 240, 0.9);
 }
 
 .dark .glass-panel {
@@ -80,10 +80,10 @@
 }
 
 .glass-dropdown {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(226, 232, 240, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.95);
 }
 
 .dark .glass-dropdown {
@@ -100,11 +100,11 @@ html {
 
 /* Custom glow */
 .glow-primary {
-  box-shadow: 0 0 35px -5px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 0 30px -5px rgba(37, 99, 235, 0.25);
 }
 
 .glow-subtle {
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
 }
 
 .dark .glow-subtle {

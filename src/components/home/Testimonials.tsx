@@ -1,14 +1,13 @@
 "use client";
 
 import * as React from "react";
-import { Star, Quote, CheckCircle2 } from "lucide-react";
+import { Star, CheckCircle2 } from "lucide-react";
 import { Badge } from "@/ui/Badge";
-import { Card } from "@/ui/Card";
 import { testimonialsData } from "@/data/testimonials";
 
 export function Testimonials() {
   return (
-    <section className="py-20 lg:py-28 bg-slate-50/60 dark:bg-slate-900/30 border-t border-slate-200 dark:border-slate-800">
+    <section className="py-20 lg:py-28 bg-slate-50/70 dark:bg-slate-900/30 border-t border-slate-200 dark:border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <Badge variant="blue" size="md">
@@ -25,20 +24,19 @@ export function Testimonials() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonialsData.slice(0, 3).map((item) => (
-            <Card
+            <div
               key={item.id}
-              hoverEffect
-              className="flex flex-col justify-between relative"
+              className="p-8 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                {/* Star rating */}
+                {/* Star rating & ROI badge */}
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-1 text-amber-400">
                     {Array.from({ length: item.rating }).map((_, i) => (
                       <Star key={i} className="h-4 w-4 fill-current" />
                     ))}
                   </div>
-                  <span className="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                  <span className="text-[11px] font-bold text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/60 px-2.5 py-0.5 rounded-full border border-teal-200 dark:border-teal-800">
                     {item.highlightMetric}
                   </span>
                 </div>
@@ -48,11 +46,13 @@ export function Testimonials() {
                 </p>
               </div>
 
-              {/* Author footer */}
-              <div className="pt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center gap-3">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white font-bold text-sm shadow-md">
-                  {item.avatarText}
-                </div>
+              {/* Author footer with real avatar image */}
+              <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center gap-3.5">
+                <img
+                  src={item.avatarUrl}
+                  alt={item.name}
+                  className="h-12 w-12 rounded-2xl object-cover object-center ring-2 ring-blue-500/20 shadow-xs"
+                />
                 <div>
                   <h4 className="text-sm font-bold text-slate-900 dark:text-white">
                     {item.name}
@@ -62,11 +62,10 @@ export function Testimonials() {
                   </p>
                 </div>
               </div>
-            </Card>
+            </div>
           ))}
         </div>
       </div>
     </section>
   );
 }
-

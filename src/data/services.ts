@@ -6,6 +6,7 @@ export interface ServiceItem {
   description: string;
   iconName: string;
   badge: string;
+  image: string;
   features: string[];
   techStack: string[];
   deliverables: string[];
@@ -21,6 +22,7 @@ export const servicesData: ServiceItem[] = [
     description: "We architect, build, and secure mission-critical API ecosystems and enterprise middleware. Whether unifying ERPs, CRMs, or legacy proprietary software, our custom connectors and ESB solutions provide bi-directional sync, sub-second latency, and fault-tolerant retry queues.",
     iconName: "Network",
     badge: "Core Specialty",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
     features: [
       "Custom REST, GraphQL & gRPC API development",
       "MuleSoft, Boomi & Zapier/Workato enterprise connectors",
@@ -45,6 +47,7 @@ export const servicesData: ServiceItem[] = [
     description: "Transition your legacy infrastructure to high-availability cloud platforms. We design resilient multi-region architectures on AWS, Azure, and GCP, backed by Infrastructure as Code (Terraform) and automated GitOps pipelines.",
     iconName: "Cloud",
     badge: "Cloud Certified",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
     features: [
       "Multi-cloud migration & zero-downtime cutover strategy",
       "Container orchestration with Kubernetes (EKS, AKS, GKE)",
@@ -69,6 +72,7 @@ export const servicesData: ServiceItem[] = [
     description: "Replace aging mainframe, AS/400, or monolithic systems with modular, maintainable cloud-native architectures. We employ strangler-fig migration patterns to incrementally decouple business services while preserving uninterrupted operations.",
     iconName: "Cpu",
     badge: "High ROI",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
     features: [
       "Monolith decomposition via Strangler Fig pattern",
       "Legacy database migration (Oracle/SQL Server to PostgreSQL/Cloud Spanner)",
@@ -93,6 +97,7 @@ export const servicesData: ServiceItem[] = [
     description: "Harness the full value of your enterprise data. We engineer petabyte-scale streaming and batch data pipelines using Apache Kafka, Snowflake, BigQuery, and dbt to feed live executive dashboards and predictive AI models.",
     iconName: "Database",
     badge: "Data & AI Ready",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
     features: [
       "Real-time event streaming with Apache Kafka & Confluent",
       "Scalable data lakehouse setup (Snowflake, BigQuery, Databricks)",
@@ -117,6 +122,7 @@ export const servicesData: ServiceItem[] = [
     description: "From greenfield product inception to scaling existing B2B SaaS applications, we deliver robust, accessible, and high-performing web platforms. Featuring multi-tenant isolation, enterprise SSO (SAML/Okta), automated billing, and 99.95% SLAs.",
     iconName: "Layers",
     badge: "Turnkey Solution",
+    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80",
     features: [
       "Multi-tenant architecture with tenant-level data isolation",
       "Enterprise Single Sign-On (SAML, Okta, Azure AD, Auth0)",
@@ -134,4 +140,3 @@ export const servicesData: ServiceItem[] = [
     metrics: "99.95% Availability SLA & SOC2 Ready Architecture"
   }
 ];
-

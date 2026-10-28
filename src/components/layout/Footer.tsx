@@ -28,7 +28,7 @@ export function Footer() {
   return (
     <footer className="relative bg-slate-900 dark:bg-slate-950 text-slate-300 border-t border-slate-800">
       {/* Decorative top accent line */}
-      <div className="h-1 w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-400" />
+      <div className="h-1 w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-teal-400" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">

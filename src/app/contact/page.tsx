@@ -52,6 +52,24 @@ export default function ContactPage() {
 
             {/* Right Column: Instant Scheduler + Direct Info Cards */}
             <div className="lg:col-span-5 space-y-8">
+              {/* Architecture Consultation Image Card */}
+              <div className="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-md h-44">
+                <img
+                  src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80"
+                  alt="Enterprise Architecture Session with Principal Engineers"
+                  className="w-full h-full object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+                <div className="absolute bottom-3.5 left-4 right-4 text-white">
+                  <div className="text-xs font-mono text-teal-300 font-bold uppercase">
+                    30-Minute Zero-Obligation Audit
+                  </div>
+                  <div className="text-sm font-bold mt-0.5">
+                    Speak directly with a Senior Integration Engineer
+                  </div>
+                </div>
+              </div>
+
               {/* Instant Call Scheduler */}
               <div>
                 <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">

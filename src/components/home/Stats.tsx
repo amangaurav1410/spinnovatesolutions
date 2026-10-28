@@ -32,19 +32,19 @@ export function Stats() {
   ];
 
   return (
-    <section className="py-12 border-y border-slate-200 dark:border-slate-800/80 bg-white/50 dark:bg-slate-900/40">
+    <section className="py-14 border-y border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {stats.map((stat, idx) => (
             <div
               key={idx}
-              className="relative p-6 rounded-2xl border border-slate-200/70 dark:border-slate-800 bg-white dark:bg-slate-900/60 shadow-sm"
+              className="relative p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md hover:border-blue-400 dark:hover:border-blue-600 transition-all duration-300"
             >
               <div className="flex items-center justify-between mb-3">
-                <div className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800/80">
+                <div className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800">
                   {stat.icon}
                 </div>
-                <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400">
+                <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
                   Verified
                 </span>
               </div>

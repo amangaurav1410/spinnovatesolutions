@@ -69,8 +69,8 @@ export function Navbar() {
         className={cn(
           "sticky top-0 z-40 w-full transition-all duration-300",
           scrolled
-            ? "bg-white/85 dark:bg-slate-950/85 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 shadow-sm"
-            : "bg-transparent border-b border-transparent"
+            ? "bg-white/95 dark:bg-slate-950/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm"
+            : "bg-white/80 dark:bg-slate-950/70 backdrop-blur-md border-b border-slate-200/60 dark:border-slate-800/40"
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
