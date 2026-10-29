@@ -173,6 +173,38 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  href="/blog"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Blog & Tech Insights
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/pricing"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Pricing & Plans
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/careers"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Careers
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/technologies"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  Technologies
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/contact"
                   className="hover:text-blue-400 transition-colors"
                 >
@@ -224,10 +256,10 @@ export function Footer() {
               <div className="flex items-center gap-2.5">
                 <Mail className="h-4 w-4 text-blue-400 shrink-0" />
                 <a
-                  href="mailto:solutions@spinnovatesolutions.com"
+                  href="mailto:info@spinnovatesolutions.com"
                   className="hover:text-blue-400 transition-colors truncate"
                 >
-                  solutions@spinnovate.com
+                  info@spinnovatesolutions.com
                 </a>
               </div>
             </div>

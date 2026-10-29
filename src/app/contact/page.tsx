@@ -4,6 +4,7 @@ import { Badge } from "@/ui/Badge";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { ContactInfo } from "@/components/contact/ContactInfo";
 import { CalBooking } from "@/components/contact/CalBooking";
+import { PageBanner } from "@/components/layout/PageBanner";
 
 export const metadata: Metadata = {
   title: "Contact Us & Book Consultation | SP Innovate Solutions",
@@ -14,21 +15,14 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="flex flex-col w-full">
-      {/* Hero Section */}
-      <section className="relative py-16 lg:py-20 bg-grid-slate border-b border-slate-200 dark:border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <Badge variant="blue" size="md">
-            Direct Engineering Access
-          </Badge>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white max-w-4xl mx-auto leading-tight">
-            Let's Engineer Your Connected Enterprise
-          </h1>
-          <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Have a question about legacy migrations, custom API connectors, or
-            streaming pipelines? Our Principal Architects respond within 24 hours.
-          </p>
-        </div>
-      </section>
+      <PageBanner
+        title="Let's Engineer Your Connected Enterprise"
+        subtitle="Have a question about legacy migrations, custom API connectors, or streaming pipelines? All inquiries go directly to our architects at info@spinnovatesolutions.com."
+        breadcrumbs={[{ label: "Contact" }]}
+        badge="Direct Engineering Access"
+        accentColor="blue"
+        imageSrc="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1600&auto=format&fit=crop&q=80"
+      />
 
       {/* Main Form and Contact Details Grid */}
       <section className="py-16 lg:py-24">

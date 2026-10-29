@@ -47,11 +47,24 @@ export function ContactForm() {
 
   const onSubmit = async (data: ContactFormData) => {
     setSubmitting(true);
-    // Simulate API submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setSubmitting(false);
-    setSubmitted(true);
-    reset();
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...data, formType: 'contact', recipientEmail: 'info@spinnovatesolutions.com' }),
+      });
+      const result = await response.json();
+      if (result.success) {
+        setSubmitted(true);
+        reset();
+      } else {
+        alert(result.message || 'Something went wrong. Please try again.');
+      }
+    } catch {
+      alert('Network error. Please check your connection and try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Badge } from "@/ui/Badge";
 import { CaseStudyGrid } from "@/components/case-studies/CaseStudyGrid";
 import { CtaBanner } from "@/components/home/CtaBanner";
+import { PageBanner } from "@/components/layout/PageBanner";
 
 export const metadata: Metadata = {
   title: "Case Studies & ROI | SP Innovate Solutions",
@@ -13,21 +14,14 @@ export const metadata: Metadata = {
 export default function CaseStudiesPage() {
   return (
     <div className="flex flex-col w-full">
-      {/* Hero Section */}
-      <section className="relative py-16 lg:py-24 bg-grid-slate border-b border-slate-200 dark:border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5">
-          <Badge variant="emerald" size="md">
-            Verified Customer Transformations
-          </Badge>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white max-w-4xl mx-auto leading-tight">
-            Proven Enterprise ROI & Architecture Deployments
-          </h1>
-          <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Real problems. Zero downtime. Measurable results. Discover how we
-            helped leading organizations modernize their mission-critical stacks.
-          </p>
-        </div>
-      </section>
+      <PageBanner
+        title="Proven Enterprise ROI & Architecture Deployments"
+        subtitle="Real problems. Zero downtime. Measurable results. Discover how we helped leading organizations modernize their mission-critical stacks."
+        breadcrumbs={[{ label: "Case Studies" }]}
+        badge="Verified Customer Transformations"
+        accentColor="emerald"
+        imageSrc="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1600&auto=format&fit=crop&q=80"
+      />
 
       {/* Filterable Portfolio Grid */}
       <section className="py-16 lg:py-24">

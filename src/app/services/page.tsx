@@ -5,6 +5,7 @@ import { servicesData } from "@/data/services";
 import { ServiceCard } from "@/components/services/ServiceCard";
 import { ServiceFaq } from "@/components/services/ServiceFaq";
 import { CtaBanner } from "@/components/home/CtaBanner";
+import { PageBanner } from "@/components/layout/PageBanner";
 
 export const metadata: Metadata = {
   title: "Services & Capabilities | SP Innovate Solutions",
@@ -15,21 +16,14 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <div className="flex flex-col w-full">
-      {/* Hero Section */}
-      <section className="relative py-16 lg:py-24 bg-grid-slate border-b border-slate-200 dark:border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5">
-          <Badge variant="blue" size="md">
-            Enterprise Solutions Catalog
-          </Badge>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white max-w-4xl mx-auto leading-tight">
-            Comprehensive Enterprise Integration & Cloud Engineering
-          </h1>
-          <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            From modernizing aging monoliths to deploying sub-second event
-            streaming fabrics and multi-cloud Kubernetes architectures.
-          </p>
-        </div>
-      </section>
+      <PageBanner
+        title="Comprehensive Enterprise Integration & Cloud Engineering"
+        subtitle="From modernizing aging monoliths to deploying sub-second event streaming fabrics and multi-cloud Kubernetes architectures."
+        breadcrumbs={[{ label: "Services" }]}
+        badge="Enterprise Solutions Catalog"
+        accentColor="indigo"
+        imageSrc="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&auto=format&fit=crop&q=80"
+      />
 
       {/* Services Deep Dive List */}
       <section className="py-16 lg:py-24">

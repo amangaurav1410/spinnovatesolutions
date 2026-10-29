@@ -18,6 +18,7 @@ import { Card, CardTitle, CardDescription } from "@/ui/Card";
 import { teamData } from "@/data/team";
 import { partnersData } from "@/data/partners";
 import { CtaBanner } from "@/components/home/CtaBanner";
+import { PageBanner } from "@/components/layout/PageBanner";
 
 export const metadata: Metadata = {
   title: "About Us | SP Innovate Solutions",
@@ -88,22 +89,14 @@ export default function AboutPage() {
 
   return (
     <div className="flex flex-col w-full bg-white dark:bg-[#090d16]">
-      {/* Hero Section */}
-      <section className="relative py-16 lg:py-24 bg-grid-slate border-b border-slate-200 dark:border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5">
-          <Badge variant="blue" size="md">
-            Our Purpose &amp; Heritage
-          </Badge>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white max-w-4xl mx-auto leading-tight">
-            Pioneering Resilient Digital Infrastructure for Global Enterprises
-          </h1>
-          <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            SP Innovate Solutions was built to solve the hardest problem in
-            modern IT: making legacy core platforms and modern cloud technology
-            communicate seamlessly without risk.
-          </p>
-        </div>
-      </section>
+      <PageBanner
+        title="Pioneering Resilient Digital Infrastructure for Global Enterprises"
+        subtitle="SP Innovate Solutions was built to solve the hardest problem in modern IT: unifying legacy core systems with modern cloud technology with zero downtime."
+        breadcrumbs={[{ label: "About Us" }]}
+        badge="Our Purpose & Heritage"
+        accentColor="blue"
+        imageSrc="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80"
+      />
 
       {/* Headquarters & Engineering Lab Visual Spotlight */}
       <section className="py-12 bg-slate-50/60 dark:bg-slate-900/30">
