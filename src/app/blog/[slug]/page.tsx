@@ -2,8 +2,8 @@ import * as React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Clock, Calendar, Tag, Share2, Sparkles, CheckCircle2, ChevronRight } from "lucide-react";
-import { blogPosts } from "@/data/blogPosts";
+import { ArrowLeft, Clock, Calendar, Tag, Share2, Sparkles, CheckCircle2, ChevronRight, HelpCircle } from "lucide-react";
+import { blogPosts, BlogPost } from "@/data/blogPosts";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -13,21 +13,25 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   const { slug } = await params;
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) return { title: "Post Not Found" };
+
+  const metaTitle = post.seo?.metaTitle || `${post.title} | SP Innovate Solutions`;
+  const metaDesc = post.seo?.metaDescription || post.excerpt;
+
   return {
-    title: `${post.title} | SP Innovate Solutions`,
-    description: post.excerpt,
+    title: metaTitle,
+    description: metaDesc,
     openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      images: [{ url: post.image }],
+      title: metaTitle,
+      description: metaDesc,
+      images: [{ url: post.image, alt: post.seo?.imageAlt || post.title }],
       type: "article",
-      publishedTime: post.publishedAt,
+      publishedTime: "2026-10-30",
       authors: [post.author],
     },
     twitter: {
       card: "summary_large_image",
-      title: post.title,
-      description: post.excerpt,
+      title: metaTitle,
+      description: metaDesc,
       images: [post.image],
     },
   };
@@ -35,6 +39,38 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
+}
+
+// Helper to render markdown links [text](url) inside text
+function renderInlineContent(text: string) {
+  const parts = [];
+  const regex = /\[(.*?)\]\((https?:\/\/[^\s)]+)\)/g;
+  let lastIndex = 0;
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.substring(lastIndex, match.index));
+    }
+    parts.push(
+      <a
+        key={match.index}
+        href={match[2]}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-primary underline decoration-primary/40 underline-offset-4 font-medium hover:decoration-primary transition-colors"
+      >
+        {match[1]}
+      </a>
+    );
+    lastIndex = regex.lastIndex;
+  }
+
+  if (lastIndex < text.length) {
+    parts.push(text.substring(lastIndex));
+  }
+
+  return parts.length > 0 ? parts : text;
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
@@ -47,12 +83,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     .filter((p) => p.slug !== slug && (p.category === post.category || p.tags.some((t) => post.tags.includes(t))))
     .slice(0, 3);
 
-  // Group content lines into paragraphs or clean blocks
   const paragraphs = post.content.split("\n\n").filter((p) => p.trim().length > 0);
 
   return (
     <div className="min-h-screen bg-background">
-      {/* JSON-LD Schema Injection */}
+      {/* JSON-LD Schema Injection - Only for posts where schema was supplied */}
       {post.schema && (
         <script
           type="application/ld+json"
@@ -64,7 +99,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <div className="relative h-80 sm:h-96 md:h-[420px] overflow-hidden">
         <img
           src={post.image}
-          alt={post.title}
+          alt={post.seo?.imageAlt || post.title}
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-slate-950/80 to-slate-900/60 backdrop-blur-[2px]" />
@@ -83,7 +118,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {post.category}
             </span>
             <span className="text-white/80 text-xs font-medium px-3 py-1 rounded-full bg-white/10 backdrop-blur-md">
-              Published Oct 30, 2026
+              {post.byline}
             </span>
           </div>
 
@@ -101,8 +136,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {post.author.slice(0, 2).toUpperCase()}
             </div>
             <div>
-              <div className="font-bold text-foreground text-base">{post.author}</div>
-              <div className="text-xs text-muted-foreground">{post.authorRole}</div>
+              <div className="font-bold text-foreground text-base">@{post.author}</div>
+              <div className="text-xs text-muted-foreground">{post.byline}</div>
             </div>
           </div>
           
@@ -118,12 +153,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         </div>
 
-        {/* TL;DR Callout Box */}
+        {/* TL;DR Highlighted Callout Box */}
         {post.tldr && (
           <div className="mb-10 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-primary/10 via-primary/5 to-secondary/10 border-2 border-primary/25 shadow-lg relative overflow-hidden">
             <div className="flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-wider mb-2">
               <Sparkles className="w-4 h-4" />
-              <span>Executive Summary / TL;DR</span>
+              <span>TL;DR</span>
             </div>
             <p className="text-base sm:text-lg text-foreground font-semibold leading-relaxed">
               {post.tldr}
@@ -132,10 +167,72 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         )}
 
         {/* Article Body Content */}
-        <article className="prose prose-slate dark:prose-invert prose-lg max-w-none space-y-6 text-foreground/90 leading-relaxed">
+        <article className="space-y-6 text-foreground/90 leading-relaxed">
           {paragraphs.map((p, idx) => {
             const trimmed = p.trim();
-            
+
+            // Marker for Responsive Table
+            if (trimmed === "{{RESPONSIVE_TABLE}}" && post.table) {
+              return (
+                <div key={idx} className="my-10 overflow-x-auto rounded-2xl border border-border bg-card shadow-md">
+                  <table className="w-full text-left text-sm border-collapse">
+                    <thead className="bg-muted/80 text-foreground border-b border-border text-xs uppercase tracking-wider">
+                      <tr>
+                        {post.table.headers.map((h, hIdx) => (
+                          <th key={hIdx} className="px-5 py-4 font-extrabold text-foreground">
+                            {h}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-border/60">
+                      {post.table.rows.map((row, rIdx) => (
+                        <tr key={rIdx} className="hover:bg-muted/30 transition-colors">
+                          {row.map((cell, cIdx) => (
+                            <td key={cIdx} className="px-5 py-4 font-medium text-foreground/90 align-top leading-relaxed">
+                              {cIdx === 0 ? (
+                                <span className="font-bold text-foreground">{renderInlineContent(cell)}</span>
+                              ) : (
+                                renderInlineContent(cell)
+                              )}
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              );
+            }
+
+            // Marker for FAQ Accordion
+            if (trimmed === "{{FAQ_ACCORDION}}" && post.faqs && post.faqs.length > 0) {
+              return (
+                <div key={idx} className="my-12 p-6 sm:p-8 rounded-3xl bg-muted/30 border border-border">
+                  <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-wider mb-4">
+                    <HelpCircle className="w-4 h-4" />
+                    <span>Frequently Asked Questions</span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-foreground mb-6">
+                    Frequently Asked Questions
+                  </h3>
+                  <div className="space-y-4">
+                    {post.faqs.map((faq, fIdx) => (
+                      <div key={fIdx} className="p-5 rounded-2xl bg-card border border-border shadow-sm space-y-2">
+                        <h4 className="font-bold text-foreground text-base flex items-start gap-2.5">
+                          <span className="text-primary font-mono text-sm mt-0.5 font-black">Q:</span>
+                          {faq.question}
+                        </h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed pl-6">
+                          {renderInlineContent(faq.answer)}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            }
+
             // Subheadings
             if (trimmed.startsWith("### ")) {
               return (
@@ -156,25 +253,25 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             if (trimmed.startsWith("- ") || trimmed.startsWith("• ")) {
               const items = trimmed.split("\n").filter((i) => i.trim().length > 0);
               return (
-                <ul key={idx} className="space-y-2 my-4 pl-2">
+                <ul key={idx} className="space-y-2.5 my-4 pl-2">
                   {items.map((item, itemIdx) => (
-                    <li key={itemIdx} className="flex items-start gap-2.5 text-base text-foreground/80">
+                    <li key={itemIdx} className="flex items-start gap-2.5 text-base text-foreground/85">
                       <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-1" />
-                      <span>{item.replace(/^[-•]\s+/, "")}</span>
+                      <span>{renderInlineContent(item.replace(/^[-•]\s+/, ""))}</span>
                     </li>
                   ))}
                 </ul>
               );
             }
 
-            // Detect heading without hashes (common in scraped blogs, e.g. "What Is the Difference...", "Where the two roles overlap")
+            // Detect heading line without hashes (e.g., question headers, section titles)
             if (
               trimmed.length < 90 &&
               !trimmed.includes(".") &&
               !trimmed.includes(",") &&
               (trimmed.endsWith("?") || /^[A-Z]/.test(trimmed)) &&
               idx > 0 &&
-              paragraphs[idx - 1].length > 100
+              paragraphs[idx - 1].length > 80
             ) {
               return (
                 <h2 key={idx} className="text-2xl sm:text-3xl font-extrabold text-foreground mt-10 mb-4 pb-2 border-b border-border/60">
@@ -185,7 +282,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             return (
               <p key={idx} className="text-base sm:text-lg text-foreground/85 leading-relaxed font-normal">
-                {trimmed}
+                {renderInlineContent(trimmed)}
               </p>
             );
           })}
@@ -240,7 +337,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         )}
 
-        {/* Newsletter CTA */}
+        {/* Bottom CTA */}
         <div className="mt-16 rounded-3xl bg-gradient-to-br from-primary via-primary/90 to-secondary p-8 sm:p-12 text-center text-primary-foreground shadow-2xl relative overflow-hidden">
           <div className="relative z-10 max-w-xl mx-auto space-y-4">
             <h3 className="text-2xl sm:text-3xl font-black tracking-tight">Stay Ahead of Enterprise Tech in 2026</h3>

@@ -28,7 +28,7 @@ export function Pillars() {
         "OAuth2, mTLS & JWT security governance",
         "Dead-letter queues & automated retries",
       ],
-      link: "/services/integration-business-analyst",
+      link: "/services/integration-services",
       tagColor: "bg-blue-50 text-blue-700 border-blue-200",
     },
     {
