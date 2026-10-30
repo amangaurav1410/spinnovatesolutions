@@ -125,7 +125,7 @@ export function Footer() {
               {servicesData.map((service) => (
                 <li key={service.id}>
                   <Link
-                    href={`/services#${service.id}`}
+                    href={`/services/${service.id}`}
                     className="text-slate-400 hover:text-blue-400 transition-colors line-clamp-1"
                   >
                     {service.title}

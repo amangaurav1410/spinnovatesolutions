@@ -1,14 +1,17 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import {
   Network,
   Cloud,
   Cpu,
   Database,
   Layers,
+  FileSpreadsheet,
   CheckCircle2,
   ArrowRight,
+  ExternalLink,
 } from "lucide-react";
 import { Badge } from "@/ui/Badge";
 import { Button } from "@/ui/Button";
@@ -17,6 +20,7 @@ import { ConsultationModal } from "@/components/layout/ConsultationModal";
 
 const iconMap: Record<string, React.ReactNode> = {
   Network: <Network className="h-6 w-6 text-blue-600" />,
+  FileSpreadsheet: <FileSpreadsheet className="h-6 w-6 text-amber-600" />,
   Cloud: <Cloud className="h-6 w-6 text-teal-600" />,
   Cpu: <Cpu className="h-6 w-6 text-indigo-600" />,
   Database: <Database className="h-6 w-6 text-emerald-600" />,
@@ -134,15 +138,21 @@ export function ServiceCard({
                 </div>
               </div>
 
-              <div className="pt-2">
+              <div className="pt-2 flex flex-col sm:flex-row gap-2.5">
+                <Link
+                  href={`/services/${service.id}`}
+                  className="flex-1 inline-flex items-center justify-center px-4 py-2.5 rounded-xl font-bold text-xs bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-100 transition-colors shadow-sm"
+                >
+                  View Details &amp; Architecture
+                  <ArrowRight className="h-3.5 w-3.5 ml-1.5" />
+                </Link>
                 <Button
                   variant="glow"
-                  size="md"
+                  size="sm"
                   onClick={() => setModalOpen(true)}
-                  className="w-full justify-center shadow-md shadow-blue-500/20"
+                  className="justify-center shadow-md shadow-blue-500/20"
                 >
-                  Request Quote &amp; Scope
-                  <ArrowRight className="h-4 w-4 ml-1.5" />
+                  Quote
                 </Button>
               </div>
             </div>

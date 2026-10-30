@@ -12,6 +12,7 @@ import {
   Cloud,
   Cpu,
   Database,
+  FileSpreadsheet,
   ArrowRight,
   ShieldCheck,
   Calendar,
@@ -24,6 +25,7 @@ import { cn } from "@/lib/utils";
 
 const serviceIcons: Record<string, React.ReactNode> = {
   Network: <Network className="h-4 w-4 text-blue-500" />,
+  FileSpreadsheet: <FileSpreadsheet className="h-4 w-4 text-amber-500" />,
   Cloud: <Cloud className="h-4 w-4 text-cyan-500" />,
   Cpu: <Cpu className="h-4 w-4 text-indigo-500" />,
   Database: <Database className="h-4 w-4 text-emerald-500" />,
@@ -148,7 +150,7 @@ export function Navbar() {
                               {servicesData.map((service) => (
                                 <Link
                                   key={service.id}
-                                  href={`/services#${service.id}`}
+                                  href={`/services/${service.id}`}
                                   className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-colors group"
                                 >
                                   <div className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 group-hover:border-blue-500/40">

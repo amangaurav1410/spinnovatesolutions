@@ -17,18 +17,18 @@ export function Pillars() {
   const pillars = [
     {
       icon: <Network className="h-6 w-6 text-blue-600" />,
-      title: "API & Middleware Fabrics",
-      badge: "Core Architecture",
+      title: "Integration & Business Analysis",
+      badge: "Flagship Primary Service",
       image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
       description:
-        "Unified REST, GraphQL, and event-driven API gateways connecting disparate applications with guaranteed sub-second delivery.",
+        "End-to-end business process modeling, requirement engineering, and robust API & middleware architectures connecting complex systems.",
       features: [
+        "Strategic requirements & BPMN 2.0 mapping",
         "MuleSoft, Boomi & custom connectors",
         "OAuth2, mTLS & JWT security governance",
         "Dead-letter queues & automated retries",
-        "OpenAPI specs & developer portals",
       ],
-      link: "/services#api-middleware",
+      link: "/services/integration-business-analyst",
       tagColor: "bg-blue-50 text-blue-700 border-blue-200",
     },
     {
@@ -44,7 +44,7 @@ export function Pillars() {
         "Automated CI/CD deployment pipelines",
         "24/7 Datadog & Prometheus APM",
       ],
-      link: "/services#cloud-devops",
+      link: "/services/cloud-devops",
       tagColor: "bg-teal-50 text-teal-700 border-teal-200",
     },
     {
@@ -60,7 +60,7 @@ export function Pillars() {
         "Decoupled asynchronous message buses",
         "Continuous automated regression audits",
       ],
-      link: "/services#legacy-modernization",
+      link: "/services/legacy-modernization",
       tagColor: "bg-indigo-50 text-indigo-700 border-indigo-200",
     },
     {
@@ -76,7 +76,7 @@ export function Pillars() {
         "Instant PowerBI & Looker semantic layer",
         "HIPAA & GDPR strict data masking",
       ],
-      link: "/services#data-pipelines",
+      link: "/services/data-pipelines",
       tagColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
     },
   ];
