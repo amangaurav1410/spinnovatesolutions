@@ -87,8 +87,8 @@ export default function TermsPage() {
             </h2>
             <p>
               These terms shall be governed by and construed in accordance with
-              the laws of the State of California, United States, without regard
-              to its conflict of law principles.
+              the laws of New South Wales, Australia, without regard to its conflict
+              of law principles.
             </p>
           </section>
         </div>

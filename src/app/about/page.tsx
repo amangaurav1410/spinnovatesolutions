@@ -32,31 +32,31 @@ export default function AboutPage() {
       year: "2018",
       title: "Company Founded",
       description:
-        "Established by principal integration architects in San Francisco with a mission to solve brittle enterprise data silos.",
+        "Established by principal integration architects in Sydney, Australia with a mission to solve brittle enterprise data silos.",
     },
     {
       year: "2020",
       title: "Cloud & Kubernetes Expansion",
       description:
-        "Expanded multi-cloud migration practices across AWS and Azure, delivering zero-downtime cutovers for Fortune 500 banks.",
+        "Expanded multi-cloud migration practices across AWS and Azure, delivering zero-downtime cutovers for leading Australian enterprises.",
     },
     {
       year: "2022",
-      title: "SOC 2 Type II & Healthcare Compliance",
+      title: "Security & Privacy Compliance",
       description:
-        "Achieved comprehensive SOC 2 Type II and HIPAA interoperability accreditations, scaling to 75+ active enterprise clients.",
+        "Achieved comprehensive Australian Privacy Principles (APP), APRA CPS 234 and SOC 2 Type II accreditations, scaling to 75+ active enterprise clients.",
     },
     {
       year: "2024",
       title: "Real-Time Streaming & AI Pipelines",
       description:
-        "Pioneered petabyte-scale Apache Kafka and Snowflake lakehouse streaming practices for real-time operational analytics.",
+        "Pioneered petabyte-scale Apache Kafka and Snowflake lakehouse streaming practices for real-time operational analytics across Australia.",
     },
     {
       year: "Present",
       title: "150+ Enterprise Integrations",
       description:
-        "Operating as a premier B2B integration partner across North America and Europe with a verified 99.99% uptime track record.",
+        "Operating as a premier Australian business integration partner with a verified 99.99% uptime track record.",
     },
   ];
 
@@ -104,21 +104,21 @@ export default function AboutPage() {
           <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800 h-80 sm:h-96">
             <img
               src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
-              alt="SP Innovate Solutions Engineering Headquarters in San Francisco"
+              alt="SP Innovate Solutions Engineering Headquarters in Sydney, Australia"
               className="w-full h-full object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 text-white">
               <div>
                 <span className="px-3 py-1 rounded-full text-xs font-bold bg-white/90 text-slate-900 backdrop-blur-md">
-                  San Francisco Tech Corridor HQ
+                  Sydney, Australia HQ
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-black mt-2">
                   Where Mission-Critical Architecture is Engineered
                 </h3>
               </div>
               <div className="text-xs font-mono text-teal-300 bg-slate-900/80 px-3 py-1.5 rounded-lg backdrop-blur-md font-bold">
-                150+ Enterprise Deployments Delivered Worldwide
+                150+ Enterprise Deployments Delivered Across Australia
               </div>
             </div>
           </div>

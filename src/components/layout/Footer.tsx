@@ -181,22 +181,6 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/pricing"
-                  className="hover:text-blue-400 transition-colors"
-                >
-                  Pricing & Plans
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/careers"
-                  className="hover:text-blue-400 transition-colors"
-                >
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/technologies"
                   className="hover:text-blue-400 transition-colors"
                 >
@@ -239,18 +223,16 @@ export function Footer() {
               <div className="flex items-start gap-2.5">
                 <MapPin className="h-4 w-4 text-blue-400 shrink-0 mt-0.5" />
                 <span>
-                  500 Howard Street, Suite 400
-                  <br />
-                  San Francisco, CA 94105
+                  Sydney, Australia
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="h-4 w-4 text-blue-400 shrink-0" />
                 <a
-                  href="tel:+18005550199"
+                  href="tel:0401496796"
                   className="hover:text-blue-400 transition-colors"
                 >
-                  +1 (800) 555-0199
+                  0401496796
                 </a>
               </div>
               <div className="flex items-center gap-2.5">

@@ -63,8 +63,6 @@ export function Navbar() {
     },
     { name: "Case Studies", href: "/case-studies" },
     { name: "Blog", href: "/blog" },
-    { name: "Pricing", href: "/pricing" },
-    { name: "Careers", href: "/careers" },
     { name: "Contact", href: "/contact" },
   ];
 

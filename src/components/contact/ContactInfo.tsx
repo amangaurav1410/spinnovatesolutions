@@ -25,13 +25,13 @@ export function ContactInfo() {
             Enterprise Sales & Support
           </div>
           <a
-            href="tel:+18005550199"
+            href="tel:0401496796"
             className="text-base font-bold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block mt-1"
           >
-            +1 (800) 555-0199
+            0401496796
           </a>
           <p className="text-xs text-slate-500 mt-1">
-            24/7 Priority Emergency Support SLA
+            Australian Support & Strategic Advisory
           </p>
         </div>
 
@@ -44,10 +44,10 @@ export function ContactInfo() {
             Architect Inquiries
           </div>
           <a
-            href="mailto:solutions@spinnovate.com"
+            href="mailto:info@spinnovatesolutions.com"
             className="text-base font-bold text-slate-900 dark:text-white hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors block mt-1 truncate"
           >
-            solutions@spinnovate.com
+            info@spinnovatesolutions.com
           </a>
           <p className="text-xs text-slate-500 mt-1">
             Guaranteed 24-hr engineer reply
@@ -63,15 +63,13 @@ export function ContactInfo() {
           </div>
           <div>
             <div className="text-xs uppercase font-bold tracking-wider text-slate-400">
-              Global Headquarters
+              Australian Headquarters
             </div>
             <div className="text-sm font-bold text-slate-900 dark:text-white mt-1">
-              SP Innovate Solutions Inc.
+              SP Innovate Solutions
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
-              500 Howard Street, Suite 400
-              <br />
-              San Francisco, CA 94105, United States
+              Sydney, Australia
             </p>
           </div>
         </div>
@@ -85,10 +83,10 @@ export function ContactInfo() {
               Operating Hours
             </div>
             <div className="text-xs font-semibold text-slate-900 dark:text-white mt-1">
-              Monday – Friday: 8:00 AM – 6:00 PM PST
+              Monday – Friday: 8:30 AM – 5:30 PM AEST
             </div>
             <p className="text-xs text-slate-500">
-              Active NOC Monitoring & Critical Escalation: 24/7/365
+              Active Integration Monitoring & Critical Support: 24/7/365
             </p>
           </div>
         </div>
@@ -105,7 +103,7 @@ export function ContactInfo() {
               HQ Location
             </Badge>
             <span className="text-xs font-mono text-cyan-300">
-              37.7891° N, 122.3972° W
+              33.8688° S, 151.2093° E
             </span>
           </div>
 
@@ -113,19 +111,19 @@ export function ContactInfo() {
             <div className="flex items-center gap-2">
               <span className="flex h-3 w-3 rounded-full bg-cyan-400 animate-ping" />
               <span className="font-bold text-sm">
-                San Francisco Financial District
+                Sydney Central Business District
               </span>
             </div>
             <p className="text-xs text-slate-300 mt-1">
-              SoMa Tech Corridor · Howard & 1st Street
+              Sydney, NSW · Australia
             </p>
           </div>
         </div>
 
         <div className="p-3 bg-white dark:bg-slate-900 flex items-center justify-between text-xs text-slate-600 dark:text-slate-400">
-          <span>In-person meetings by appointment</span>
+          <span>In-person consultations by appointment</span>
           <a
-            href="https://maps.google.com"
+            href="https://maps.google.com/?q=Sydney+Australia"
             target="_blank"
             rel="noreferrer"
             className="text-blue-600 dark:text-blue-400 font-semibold inline-flex items-center gap-1 hover:underline"

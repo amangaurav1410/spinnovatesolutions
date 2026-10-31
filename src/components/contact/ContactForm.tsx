@@ -146,7 +146,7 @@ export function ContactForm() {
           </label>
           <input
             type="tel"
-            placeholder="+1 (555) 234-5678"
+            placeholder="0401496796"
             {...register("phone")}
             className="w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-2.5 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
